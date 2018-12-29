@@ -23,6 +23,7 @@
         <engine name="cordova-ios" version=">=4.0.0"/>
         <engine name="cordova-android" version=">=5.0.0"/>
         <engine name="cordova-windows" version=">=4.0.0"/>
+        <engine name="cordova-osx" version=">=4.0.0"/>
     </engines>
 
     <platform name="android">
@@ -50,5 +51,15 @@
             <merges target=""/>
         </js-module>
         <resource-file src="src/windows/buildinfo.resjson" target="strings/buildinfo.resjson" />
+    </platform>
+
+    <platform name="osx">
+        <config-file target="config.xml" parent="/*">
+            <feature name="BuildInfo">
+                <param name="osx-package" value="CDVBuildInfo"/>
+            </feature>
+        </config-file>
+        <header-file src="src/osx/CDVBuildInfo.h"/>
+        <source-file src="src/osx/CDVBuildInfo.m"/>
     </platform>
 </plugin>
